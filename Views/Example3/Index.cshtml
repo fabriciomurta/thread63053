@@ -1,0 +1,44 @@
+﻿@using ExtMVC1.Models
+
+@model Example3Model
+@{ 
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>Example 1</title>
+</head>
+<body>
+    @* See also:
+        /Controllers/Example3Controller.cs
+        /View/Shared/Components/AdminPanel/Default.cshtml
+        /View/Shared/Components/Header/Default.cshtml
+        /View/Shared/Components/Login/Login.cshtml
+        /View/Shared/Components/Login/Logout.cshtml
+        /ViewComponents/AdminPanel.cs
+        /ViewComponents/Header.cs
+        /ViewComponents/Login.cs
+    *@
+    @await Component.InvokeAsync("AdminPanel")
+    @await Component.InvokeAsync("Header", new { role = Model.Role })
+    @await Component.InvokeAsync("Login", new { isLogged = Model.Role != Example3Model.Roles.Guest })
+    <ext-viewport layout="Border">
+        <items>
+            <ext-section name="HeaderViewComponent" required="false" />
+            <ext-panel region="Center" title="Center Panel" layout="VBox" bodyPadding="20">
+                <items>
+                    <ext-button text="Back to Home Page" onClientClick="window.location = '/'" />
+                </items>
+            </ext-panel>
+            <ext-panel region="East" title="East Panel" layout="VBox">
+                <items>
+                    <ext-label html="Welcome, @Model.Role!" minWidth="200" />
+                    <ext-section name="LoginOrLogoutCmp" required="false" />
+                </items>
+            </ext-panel>
+            <ext-section name="AdminPanelViewComponent" required="false" />
+        </items>
+    </ext-viewport>
+</body>
+</html>

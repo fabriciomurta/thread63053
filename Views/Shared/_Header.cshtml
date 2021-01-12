@@ -1,0 +1,14 @@
+@using ExtMVC1.Models
+
+<ext-container region="North" cls="navbar" paddingAsString="0 20" height="64">
+    <layout>
+        <ext-hBoxLayout align="Middle" pack="Start" />
+    </layout>
+    <items>
+        <ext-Label flex="1" html=@("<a class=\"app-logo\" href=\"/\">ExtMVC1</a>") />
+        <ext-Button
+            text="Logged as: <i>@ExamplesModel.CachedRole</i>"
+            tooltip="You can switch accounts within the examples in the project."
+            />
+    </items>
+</ext-container>

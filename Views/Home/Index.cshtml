@@ -1,0 +1,15 @@
+﻿@model ExtMVC1.Models.HomeModel
+@{
+    ViewData["Title"] = "Examples Index";
+}
+
+<ext-section target="Main">
+    <ext-container region="Center" scrollable="true" paddingAsString="30 20 30 50">
+        <items>
+            @for (var i = 1; i <= 3; i++)
+            {
+                <ext-component html="<a href=/Example@i>Example #@i</a>" />
+            }
+        </items>
+    </ext-container>
+</ext-section>

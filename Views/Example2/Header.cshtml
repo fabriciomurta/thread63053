@@ -1,0 +1,10 @@
+﻿@using ExtMVC1.Models
+
+@model Example2Model
+
+@{
+    if (Model.Role != Example2Model.Roles.Guest)
+    {
+        <ext-component region="North" html="<h1>Header bar</h1>" />
+    }
+}

@@ -1,0 +1,26 @@
+<ext-container
+    region="West"
+    cls="sidebar"
+    width="240"
+    scrollable="true"
+    paddingAsString="20">
+    <layout>
+        <ext-vboxLayout align="Stretch" />
+    </layout>
+    <items>
+        <ext-container flex="1">
+            <content>
+                <nav class="sidebar-nav">
+                    <ul>
+                        @{
+                            for (var i = 1; i <= 3; i++)
+                            {
+                                <li><a href="/Example@(i)" class="sidebar-nav-link active"><i class="x-md">dashboard</i><span>Example @i</span></a></li>
+                            }
+                        }
+                    </ul>
+                </nav>
+            </content>
+        </ext-container>
+    </items>
+</ext-container>

@@ -1,0 +1,31 @@
+﻿@using ExtMVC1.Models
+
+@model Example2Model
+@{ 
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>Example 1</title>
+</head>
+<body>
+    <ext-viewport layout="Border">
+        <items>
+            <ext-partial name="Header" model="Model" />
+            <ext-panel region="Center" title="Center Panel" layout="VBox" bodyPadding="20">
+                <items>
+                    <ext-button text="Back to Home Page" onClientClick="window.location = '/'" />
+                </items>
+            </ext-panel>
+            <ext-panel region="East" title="East Panel" layout="VBox">
+                <items>
+                    <ext-label html="Welcome, @Model.Role!" minWidth="200" />
+                    <ext-partial name="Login" model="Model" />
+                </items>
+            </ext-panel>
+            <ext-partial name="AdminPanel" model="Model" />
+        </items>
+    </ext-viewport>
+</body>
+</html>

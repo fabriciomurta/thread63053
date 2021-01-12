@@ -1,0 +1,19 @@
+﻿<ext-comboBox fieldLabel="Log as" editable="false">
+    <items>
+        <ext-listItem text="Admin" value="@("adm")" />
+        <ext-listItem text="User" value="@("usr")" />
+        <ext-listItem text="Approver" value="@("app")" />
+    </items>
+</ext-comboBox>
+<ext-button text="Login">
+    <directEvents>
+        <click actionName="Login"
+            before="if (this.up().down('combobox').getValue() == null) { Ext.toast('Select a role.'); return false; }">
+            <extraParams>
+                <ext-add key="role"
+                    value="function() { return this.up().down('combobox').getValue(); }" mode="Raw"
+                    />
+            </extraParams>
+        </click>
+    </directEvents>
+</ext-button>

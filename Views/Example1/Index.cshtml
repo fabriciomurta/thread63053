@@ -1,0 +1,50 @@
+﻿@using ExtMVC1.Models
+
+@model Example1Model
+@{ 
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>Example 1</title>
+</head>
+<body>
+    <ext-viewport layout="Border">
+        <items>
+            @{
+                if (Model.Role != Example1Model.Roles.Guest)
+                {
+                    <ext-partial name="Header" />
+                }
+            }
+            <ext-panel region="Center" title="Center Panel" layout="VBox" bodyPadding="20">
+                <items>
+                    <ext-button text="Back to Home Page" onClientClick="window.location = '/'" />
+                </items>
+            </ext-panel>
+            <ext-panel region="East" title="East Panel" layout="VBox">
+                <items>
+                    <ext-label html="Welcome, @Model.Role!" minWidth="200" />
+                    @{ 
+                        if (Model.Role == Example1Model.Roles.Guest)
+                        {
+                            <ext-partial name="Login" />
+                        }
+                        else
+                        {
+                            <ext-button text="Logout" onDirectClick="Logout" />
+                        }
+                    }
+                </items>
+            </ext-panel>
+            @{
+                if (Example1Model.CachedRole == Example1Model.Roles.Admin)
+                {
+                    <ext-partial name="AdminPanel" />
+                }
+            }
+        </items>
+    </ext-viewport>
+</body>
+</html>

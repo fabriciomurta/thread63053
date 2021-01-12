@@ -1,0 +1,10 @@
+﻿@using ExtMVC1.Models
+
+@model Example2Model
+
+@{
+    if (Model.Role == Example2Model.Roles.Admin)
+    {
+        <ext-panel region="South" title="Administrator Panel" html="Administration panel contents" />
+    }
+}
